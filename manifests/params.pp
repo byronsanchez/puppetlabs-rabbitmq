@@ -5,6 +5,15 @@
 class rabbitmq::params {
 
   case $::osfamily {
+    'Gentoo': {
+      $package_ensure   = 'installed'
+      $package_name     = 'rabbitmq-server'
+      $service_name     = 'rabbitmq'
+      $package_source   = ''
+      $version          = '3.3.0'
+      $base_version     = regsubst($version,'^(.*)-\d$','\1')
+      # This must remain at the end as we need $base_version and $version defined first
+    }
     'Archlinux': {
       $package_ensure   = 'installed'
       $package_name     = 'rabbitmq'
