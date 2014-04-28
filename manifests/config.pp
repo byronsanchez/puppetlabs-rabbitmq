@@ -49,8 +49,8 @@ class rabbitmq::config {
 
   file { '/etc/rabbitmq':
     ensure  => directory,
-    owner   => '0',
-    group   => '0',
+    owner   => 'rabbitmq',
+    group   => 'rabbitmq',
     mode    => '0644',
   }
 
